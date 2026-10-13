@@ -1,0 +1,776 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chatpatte Ghar Wale Chips | Har Bite Mein Chatpata Twist</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --red: #ed252c;
+  --dark-red: #a90f19;
+  --yellow: #ffdb35;
+  --cream: #fff9e9;
+  --dark: #231b25;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 7%;
+  background: rgba(255,249,233,.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #f1e4c9;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--red);
+  letter-spacing: -.8px;
+}
+
+.logo span {
+  display: block;
+  color: var(--dark);
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-top: 5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nav-links a:hover { color: var(--red); }
+
+.nav-btn, .btn {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  padding: 13px 23px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 7px 0 var(--dark-red);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.nav-btn:hover, .btn:hover {
+  transform: translateY(3px);
+  box-shadow: 0 4px 0 var(--dark-red);
+}
+
+.hero {
+  min-height: 650px;
+  padding: 70px 7%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+  background:
+    radial-gradient(ellipse at 75% 48%, #ffdf6a 0%, transparent 39%),
+    var(--cream);
+  overflow: hidden;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: var(--yellow);
+  padding: 8px 15px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 23px;
+}
+
+.hero h1 {
+  font-size: clamp(43px, 5.4vw, 76px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -3px;
+}
+
+.hero h1 span {
+  color: var(--red);
+  display: block;
+}
+
+.hero p {
+  margin: 23px 0 30px;
+  max-width: 420px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #71646a;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.secondary-btn {
+  font-weight: 700;
+  font-size: 13px;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 5px;
+}
+
+.hero-art {
+  position: relative;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.sun-disc {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: inset -15px -15px 0 rgba(223,145,0,.15);
+}
+
+.packet {
+  position: relative;
+  z-index: 2;
+  width: 230px;
+  height: 330px;
+  border-radius: 23px 23px 34px 34px;
+  background: linear-gradient(110deg, #ff4541 0%, #d30b20 35%, #f32c25 62%, #a90017 100%);
+  border: 3px solid #a90017;
+  box-shadow: 24px 28px 0 rgba(123,39,22,.12),
+              inset 8px 0 12px rgba(255,255,255,.2),
+              inset -10px 0 16px rgba(0,0,0,.2);
+  transform: rotate(-7deg) rotateY(-10deg);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 24px 12px;
+  color: white;
+  text-align: center;
+  animation: float 4s ease-in-out infinite;
+}
+
+.packet:before, .packet:after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  height: 13px;
+  background: repeating-linear-gradient(90deg, #ffdf45 0 7px, #dca900 7px 10px);
+  border: 2px solid #a90017;
+  border-radius: 5px;
+}
+
+.packet:before { top: -5px; }
+.packet:after { bottom: -5px; }
+
+.packet-brand {
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1.08;
+  text-shadow: 2px 3px 0 #920b16;
+}
+
+.packet-brand small {
+  display: block;
+  font-size: 10px;
+  color: var(--yellow);
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+.packet-sun {
+  margin-top: 22px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff7ae, #ffb32e);
+  box-shadow: inset -7px -7px 0 rgba(194,83,0,.16),
+              0 8px 15px rgba(0,0,0,.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 65px;
+  transform: rotate(7deg);
+}
+
+.packet-tag {
+  margin-top: 14px;
+  color: var(--yellow);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.chip {
+  position: absolute;
+  z-index: 3;
+  width: 72px;
+  height: 51px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffe69b, #e99b24 70%, #b96915);
+  border: 2px solid #d68a24;
+  box-shadow: inset 5px 4px 7px rgba(255,255,255,.55),
+              7px 10px 13px rgba(114,59,0,.16);
+}
+
+.chip:after {
+  content: "·  ·  ·";
+  display: block;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+  color: #b46c1c;
+  letter-spacing: 4px;
+}
+
+.chip-one { top: 45px; right: 18px; transform: rotate(32deg); }
+.chip-two { bottom: 55px; left: 8px; transform: rotate(-30deg); }
+.chip-three { top: 95px; left: 7px; transform: rotate(55deg) scale(.7); }
+
+.spice {
+  position: absolute;
+  color: var(--red);
+  font-size: 28px;
+  font-weight: 900;
+}
+.spice-one { top: 35px; left: 70px; transform: rotate(-20deg); }
+.spice-two { bottom: 38px; right: 40px; transform: rotate(20deg); }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-7deg) rotateY(-10deg); }
+  50% { transform: translateY(-13px) rotate(-4deg) rotateY(5deg); }
+}
+
+.marquee {
+  overflow: hidden;
+  background: var(--red);
+  color: white;
+  padding: 17px 0;
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 32px;
+  animation: scroll 24s linear infinite;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.marquee-track span { white-space: nowrap; }
+
+@keyframes scroll {
+  to { transform: translateX(-50%); }
+}
+
+section { padding: 90px 7%; }
+
+.section-head {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-head .mini {
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+
+.section-head h2 {
+  margin-top: 12px;
+  font-size: clamp(30px, 4vw, 45px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+
+.section-head p {
+  margin: 12px auto 0;
+  max-width: 510px;
+  font-size: 14px;
+  color: #82757a;
+  line-height: 1.8;
+}
+
+.products { background: #fffdf7; }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.product-card {
+  background: var(--cream);
+  border: 1px solid #f1e8d5;
+  border-radius: 25px;
+  padding: 22px;
+  text-align: center;
+  transition: transform .3s, box-shadow .3s;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(75,40,10,.1);
+}
+
+.product-visual {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 19px;
+  background: radial-gradient(circle, #fff0ae, #ffe4a0);
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+.mini-packet {
+  width: 120px;
+  height: 165px;
+  border-radius: 12px 12px 19px 19px;
+  background: linear-gradient(110deg, #ff4a37, #cf1022 60%, #990b1c);
+  box-shadow: 12px 15px 0 rgba(100,50,0,.12),
+              inset 5px 0 7px rgba(255,255,255,.22);
+  transform: rotate(-7deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: transform .3s;
+}
+
+.product-card:hover .mini-packet { transform: rotate(0) scale(1.06); }
+
+.mini-packet.yellow { background: linear-gradient(110deg, #ffcf35, #f28c13 65%, #b85c0a); }
+.mini-packet.green { background: linear-gradient(110deg, #48b65b, #167f36 65%, #09572c); }
+
+.mini-packet strong {
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.15;
+}
+.mini-packet small {
+  margin-top: 5px;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.mini-packet .emoji { font-size: 43px; margin: 8px 0; }
+
+.flavour-label {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  color: var(--red);
+  background: #ffe2d8;
+  padding: 6px 10px;
+  border-radius: 30px;
+}
+
+.product-card h3 { margin: 12px 0 7px; font-size: 19px; }
+.product-card p { font-size: 12px; color: #82757a; line-height: 1.8; }
+
+.story {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 70px;
+  align-items: center;
+  background: #ffedb7;
+}
+
+.story-visual {
+  min-height: 340px;
+  border-radius: 30px;
+  background: var(--red);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  transform: rotate(-2deg);
+  box-shadow: 14px 17px 0 rgba(135,55,10,.1);
+}
+
+.story-visual .big-emoji { font-size: 95px; }
+.story-visual h3 { font-size: 27px; line-height: 1.2; }
+.story-visual p { font-size: 12px; margin-top: 10px; color: #ffe5b0; }
+
+.story-copy .mini {
+  color: var(--red);
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: 11px;
+}
+
+.story-copy h2 {
+  font-size: clamp(30px, 4vw, 45px);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  margin: 15px 0 20px;
+}
+
+.story-copy p {
+  font-size: 14px;
+  color: #74615c;
+  line-height: 2;
+  margin-bottom: 22px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.feature {
+  padding: 17px 10px;
+  background: rgba(255,255,255,.6);
+  border-radius: 15px;
+  text-align: center;
+}
+.feature span { font-size: 24px; }
+.feature strong { display: block; font-size: 11px; margin-top: 8px; }
+
+.contact {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact:before {
+  content: "✦";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  color: #45313a;
+  font-size: 150px;
+}
+.contact:after {
+  content: "✦";
+  position: absolute;
+  bottom: 0;
+  right: 8%;
+  color: #45313a;
+  font-size: 150px;
+}
+
+.contact .section-head { position: relative; z-index: 1; }
+.contact .section-head h2 { color: white; }
+.contact .section-head p { color: #c3b7bc; }
+
+.contact .btn { position: relative; z-index: 1; }
+
+.contact-note {
+  margin-top: 22px;
+  color: #c3b7bc;
+  font-size: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  padding: 27px 7%;
+  background: #171118;
+  color: #b9adb5;
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+footer strong { color: white; }
+
+@media (max-width: 800px) {
+  nav { padding: 15px 5%; }
+  .nav-links { gap: 13px; font-size: 11px; }
+  .nav-btn { display: none; }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 55px 6% 35px;
+    text-align: center;
+  }
+  .hero p { margin-left: auto; margin-right: auto; }
+  .hero-buttons { justify-content: center; }
+  .hero-art { min-height: 410px; }
+  .sun-disc { width: 300px; height: 300px; }
+  .packet { transform: scale(.9) rotate(-7deg); }
+  .product-grid { grid-template-columns: 1fr; max-width: 400px; margin: auto; }
+  .story { grid-template-columns: 1fr; gap: 45px; }
+  .story-visual { min-height: 280px; }
+  section { padding: 65px 6%; }
+}
+
+@media (max-width: 430px) {
+  .logo { font-size: 16px; }
+  .logo span { font-size: 9px; }
+  .nav-links { gap: 10px; }
+  .nav-links a { font-size: 10px; }
+  .hero h1 { letter-spacing: -2px; }
+  .hero-art { min-height: 360px; }
+  .sun-disc { width: 255px; height: 255px; }
+  .packet { transform: scale(.78) rotate(-7deg); }
+  .features { gap: 7px; }
+  .feature strong { font-size: 9px; }
+  footer { justify-content: center; text-align: center; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a class="logo" href="#home">
+    CHATPATTE
+    <span>GHAR WALE CHIPS</span>
+  </a>
+
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#flavours">Flavours</a>
+    <a href="#story">Our Story</a>
+  </div>
+
+  <a class="nav-btn" href="#contact">Contact Us ↗</a>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <span class="eyebrow">🌶️ DESI SWAAD, FULL ON MASTI</span>
+
+    <h1>
+      Har Bite Mein
+      <span>Chatpata</span>
+      Twist!
+    </h1>
+
+    <p>
+      Mil baitho, packet kholo aur masti shuru!
+      Chatpatte Ghar Wale Chips — your snack-time
+      partner for every craving and every mood.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn" href="#flavours">EXPLORE FLAVOURS ↗</a>
+      <a class="secondary-btn" href="#story">Hamari Kahani ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-art">
+    <div class="sun-disc"></div>
+    <div class="chip chip-one"></div>
+    <div class="chip chip-two"></div>
+    <div class="chip chip-three"></div>
+    <div class="spice spice-one">✦</div>
+    <div class="spice spice-two">✳</div>
+
+    <div class="packet">
+      <div class="packet-brand">
+        CHATPATTE
+        <small>GHAR WALE CHIPS</small>
+      </div>
+      <div class="packet-sun">🥔</div>
+      <div class="packet-tag">FULL ON MASALA!</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>✦ KHATTA MEETHA</span><span>✦ CRUNCH KA KING</span>
+    <span>✦ DESI MASALA</span><span>✦ HAR BITE CHATPATI</span>
+    <span>✦ DOSTI + CHIPS</span><span>✦ KHATTA MEETHA</span>
+    <span>✦ CRUNCH KA KING</span><span>✦ DESI MASALA</span>
+    <span>✦ HAR BITE CHATPATI</span><span>✦ DOSTI + CHIPS</span>
+  </div>
+</div>
+
+<section class="products" id="flavours">
+  <div class="section-head">
+    <span class="mini">MEET YOUR NEW CRAVING</span>
+    <h2>Choose Your Chatpata Mood</h2>
+    <p>Teen mast flavours, ek zabardast snack-time experience.
+       Pick your favourite and share the happiness!</p>
+  </div>
+
+  <div class="product-grid">
+    <article class="product-card">
+      <div class="product-visual">
+        <div class="mini-packet">
+          <strong>CHATPATTE<br>GHAR WALE</strong>
+          <small>CLASSIC MASALA</small>
+          <div class="emoji">🥔</div>
+          <small>FULL ON SWAAD</small>
+        </div>
+      </div>
+      <span class="flavour-label">THE ALL-TIME FAVOURITE</span>
+      <h3>Classic Masala</h3>
+      <p>Masaledaar vibes for your everyday snack cravings.</p>
+    </article>
+
+    <article class="product-card">
+      <div class="product-visual">
+        <div class="mini-packet yellow">
+          <strong>CHATPATTE<br>GHAR WALE</strong>
+          <small>SPICY CHILLI</small>
+          <div class="emoji">🌶️</div>
+          <small>TEEKHA TWIST</small>
+        </div>
+      </div>
+      <span class="flavour-label">FOR THE SPICE LOVERS</span>
+      <h3>Spicy Chilli</h3>
+      <p>A fiery-looking flavour concept for those who love a teekha twist.</p>
+    </article>
+
+    <article class="product-card">
+      <div class="product-visual">
+        <div class="mini-packet green">
+          <strong>CHATPATTE<br>GHAR WALE</strong>
+          <small>TANGY TOMATO</small>
+          <div class="emoji">🍅</div>
+          <small>CHATPATA MAGIC</small>
+        </div>
+      </div>
+      <span class="flavour-label">TANGY & FUN</span>
+      <h3>Tangy Tomato</h3>
+      <p>A bright, tangy flavour concept to add fun to snack time.</p>
+    </article>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="story-visual">
+    <div class="big-emoji">😋</div>
+    <h3>Packet Kholo.<br>Masti Shuru!</h3>
+    <p>Every snack break deserves a little chatpata magic.</p>
+  </div>
+
+  <div class="story-copy">
+    <span class="mini">DIL SE DESI ❤️</span>
+    <h2>Ghar Jaisa Naam.<br>Chatpata Andaaz.</h2>
+    <p>
+      Meet Rajesh's dream: Chatpatte Ghar Wale Chips.
+      A desi snack brand concept made for chai breaks,
+      movie nights, college hangouts and family time.
+    </p>
+    <p>
+      Our vision is simple — create a memorable brand
+      that brings people together over their favourite
+      crunchy snacks. Every great brand starts with one
+      big dream and a whole lot of flavour!
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <span>🎉</span>
+        <strong>FULL ON FUN</strong>
+      </div>
+      <div class="feature">
+        <span>🌶️</span>
+        <strong>DESI VIBES</strong>
+      </div>
+      <div class="feature">
+        <span>🤝</span>
+        <strong>SHARE THE JOY</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-head">
+    <span class="mini">LET'S CONNECT</span>
+    <h2>Ready for Some Chatpata Masti?</h2>
+    <p>
+      Want to stock our chips, discuss distribution,
+      or learn more about the brand? Get in touch with Rajesh.
+    </p>
+  </div>
+
+  <!-- Replace the WhatsApp number in the script below -->
+  <a class="btn" href="#" id="whatsappButton">
+    CONNECT ON WHATSAPP ↗
+  </a>
+
+  <p class="contact-note">
+    Retailers • Distributors • Business Enquiries
+  </p>
+</section>
+</main>
+
+<footer>
+  <div><strong>CHATPATTE GHAR WALE CHIPS</strong></div>
+  <div>Made for snack-time masti ❤️</div>
+  <div>© <span id="year"></span> Rajesh's Brand Concept</div>
+</footer>
+
+<script>
+  // Replace with Rajesh's WhatsApp number including country code.
+  // Example for India: 919876543210 (no + or spaces).
+  const whatsappNumber = "919876543210";
+
+  document.getElementById("whatsappButton").href =
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(
+      "Hi Rajesh! I would like to know more about Chatpatte Ghar Wale Chips."
+    );
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
+```
